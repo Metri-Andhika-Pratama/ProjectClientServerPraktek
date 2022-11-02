@@ -1,0 +1,7 @@
+com\dhika\pengembalian\service\service\PengembalianService.class
+com\dhika\pengembalian\service\entity\Pengembalian.class
+com\dhika\pengembalian\service\vo\ResponseTemplateVO.class
+com\dhika\pengembalian\service\vo\Peminjaman.class
+com\dhika\pengembalian\service\PengembalianServiceApplication.class
+com\dhika\pengembalian\service\controller\PengembalianController.class
+com\dhika\pengembalian\service\repository\PengembalianRepository.class
