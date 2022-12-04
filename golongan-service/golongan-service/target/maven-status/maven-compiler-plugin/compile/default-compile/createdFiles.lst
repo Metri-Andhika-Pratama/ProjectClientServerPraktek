@@ -1,0 +1,5 @@
+com\dhika\golongan\controller\GolonganController.class
+com\dhika\golongan\service\GolonganService.class
+com\dhika\golongan\GolonganServiceApplication.class
+com\dhika\golongan\repository\GolonganRepository.class
+com\dhika\golongan\entity\Golongan.class
