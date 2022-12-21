@@ -4,16 +4,13 @@
  */
 package com.dhika.client_2101082009;
 
-
 import com.dhika.client_2101082009.controller.AnggotaController;
-import com.dhika.client_2101082009.model.Anggota;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
  *
- * @author Acer
+ * @author LABSIDOSEN
  */
 public class FormAnggota extends javax.swing.JFrame {
 
@@ -25,18 +22,19 @@ public class FormAnggota extends javax.swing.JFrame {
         initComponents();
         controller = new AnggotaController(this);
         controller.bersihForm();
+        controller.viewTabel();
     }
 
-    public JTable getTableAnggota() {
-        return tableAnggota;
+    public JTable getTabelAnggota() {
+        return tabelAnggota;
     }
 
     public JTextField getTxtAlamat() {
         return txtAlamat;
     }
 
-    public JTextField getTxtIdAnggota() {
-        return txtIdAnggota;
+    public JTextField getTxtAnggotaId() {
+        return txtAnggotaId;
     }
 
     public JTextField getTxtNama() {
@@ -55,43 +53,77 @@ public class FormAnggota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        txtAnggotaId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtIdAnggota = new javax.swing.JTextField();
         txtNama = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnCari = new javax.swing.JButton();
         txtAlamat = new javax.swing.JTextField();
-        btnSimpan = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableAnggota = new javax.swing.JTable();
+        tabelAnggota = new javax.swing.JTable();
+        btnCari = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("ID Anggota");
+        jLabel1.setText("Anggota Id");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(22, 20, 62, 16);
+        jLabel1.setBounds(10, 20, 100, 16);
+
+        txtAnggotaId.setText("jTextField1");
+        txtAnggotaId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnggotaIdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtAnggotaId);
+        txtAnggotaId.setBounds(130, 20, 180, 30);
 
         jLabel2.setText("Nama Anggota");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 90, 16);
+        jLabel2.setBounds(10, 50, 120, 16);
 
-        txtIdAnggota.setText("jTextField1");
-        getContentPane().add(txtIdAnggota);
-        txtIdAnggota.setBounds(130, 12, 160, 30);
-
-        txtNama.setText("jTextField2");
+        txtNama.setText("jTextField1");
         txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaActionPerformed(evt);
             }
         });
         getContentPane().add(txtNama);
-        txtNama.setBounds(130, 50, 240, 30);
+        txtNama.setBounds(130, 50, 260, 30);
 
         jLabel3.setText("Alamat");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 90, 80, 16);
+        jLabel3.setBounds(10, 80, 110, 16);
+
+        txtAlamat.setText("jTextField1");
+        getContentPane().add(txtAlamat);
+        txtAlamat.setBounds(130, 80, 260, 30);
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSave);
+        btnSave.setBounds(10, 120, 70, 22);
+
+        tabelAnggota.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Anggota Id", "Nama", "Alamat"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelAnggota);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 152, 380, 340);
 
         btnCari.setText("Cari");
         btnCari.addActionListener(new java.awt.event.ActionListener() {
@@ -100,62 +132,74 @@ public class FormAnggota extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCari);
-        btnCari.setBounds(300, 20, 72, 22);
+        btnCari.setBounds(318, 20, 72, 22);
 
-        txtAlamat.setText("jTextField3");
-        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlamatActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAlamat);
-        txtAlamat.setBounds(130, 90, 240, 30);
+        getContentPane().add(btnUpdate);
+        btnUpdate.setBounds(90, 120, 72, 22);
 
-        btnSimpan.setText("Simpan");
-        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSimpanActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSimpan);
-        btnSimpan.setBounds(20, 120, 72, 22);
+        getContentPane().add(jButton2);
+        jButton2.setBounds(180, 120, 72, 22);
 
-        tableAnggota.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jButton3.setText("Cancel");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(tableAnggota);
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(270, 120, 72, 22);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 150, 370, 280);
-
-        setSize(new java.awt.Dimension(416, 444));
+        setSize(new java.awt.Dimension(421, 540));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
-        controller.getAnggotaId();
+        controller.getAnggota();
     }//GEN-LAST:event_btnCariActionPerformed
 
-    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        Anggota anggota = controller.saveAnggota();
-        if(anggota!=null){
-            JOptionPane.showMessageDialog(this, "Entry data Ok");
-        }
-    }//GEN-LAST:event_btnSimpanActionPerformed
+        controller.saveAnggota();
+        controller.viewTabel();
+        controller.bersihForm();
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlamatActionPerformed
+        controller.UpdateAnggota();
+        controller.viewTabel();
+        controller.bersihForm();
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        controller.deleteAnggota();
+        controller.viewTabel();
+        controller.bersihForm();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        controller.bersihForm();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtAnggotaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnggotaIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnggotaIdActionPerformed
 
     private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
         // TODO add your handling code here:
@@ -187,6 +231,7 @@ public class FormAnggota extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormAnggota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -198,14 +243,17 @@ public class FormAnggota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCari;
-    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableAnggota;
+    private javax.swing.JTable tabelAnggota;
     private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtIdAnggota;
+    private javax.swing.JTextField txtAnggotaId;
     private javax.swing.JTextField txtNama;
     // End of variables declaration//GEN-END:variables
 }
