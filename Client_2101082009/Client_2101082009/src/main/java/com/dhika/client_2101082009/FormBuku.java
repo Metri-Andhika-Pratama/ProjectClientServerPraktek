@@ -4,7 +4,7 @@
  */
 package com.dhika.client_2101082009;
 
-import com.dhika.client_2101082009.controller.AnggotaController;
+import com.dhika.client_2101082009.controller.BukuController;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -12,33 +12,39 @@ import javax.swing.JTextField;
  *
  * @author User
  */
-public class FormAnggota extends javax.swing.JFrame {
+public class FormBuku extends javax.swing.JFrame {
 
     /**
      * Creates new form FormAnggota
      */
-    AnggotaController controller;
-    public FormAnggota() {
+    BukuController controller;
+    public FormBuku() {
         initComponents();
-        controller = new AnggotaController(this);
+        controller = new BukuController(this);
         controller.bersihForm();
         controller.viewTabel();
     }
 
-    public JTable getTabelAnggota() {
-        return tabelAnggota;
+    public JTable getTabelBuku() {
+        return tabelBuku;
     }
 
-    public JTextField getTxtAlamat() {
-        return txtAlamat;
+    public JTextField getTxtJudul() {
+        return txtJudul;
     }
 
-    public JTextField getTxtAnggotaId() {
-        return txtAnggotaId;
+    public JTextField getTxtBukuId() {
+        return txtBukuId;
     }
 
-    public JTextField getTxtNama() {
-        return txtNama;
+    public JTextField getTxtPengarang() {
+        return txtPengarang;
+    }
+     public JTextField getTxtPenerbit() {
+        return txtPenerbit;
+    }
+      public JTextField getTxtTahunterbit() {
+        return txtTahunterbit;
     }
     
     
@@ -53,55 +59,59 @@ public class FormAnggota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtAnggotaId = new javax.swing.JTextField();
+        txtBukuId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNama = new javax.swing.JTextField();
+        txtJudul = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtAlamat = new javax.swing.JTextField();
+        txtPengarang = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelAnggota = new javax.swing.JTable();
+        tabelBuku = new javax.swing.JTable();
         btnCari = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtPenerbit = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtTahunterbit = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Anggota Id");
+        jLabel1.setText("Buku Id");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(10, 20, 100, 16);
 
-        txtAnggotaId.setText("jTextField1");
-        txtAnggotaId.addActionListener(new java.awt.event.ActionListener() {
+        txtBukuId.setText("jTextField1");
+        txtBukuId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnggotaIdActionPerformed(evt);
+                txtBukuIdActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAnggotaId);
-        txtAnggotaId.setBounds(130, 20, 180, 30);
+        getContentPane().add(txtBukuId);
+        txtBukuId.setBounds(130, 20, 180, 30);
 
-        jLabel2.setText("Nama Anggota");
+        jLabel2.setText("Judul");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 50, 120, 16);
 
-        txtNama.setText("jTextField1");
-        txtNama.addActionListener(new java.awt.event.ActionListener() {
+        txtJudul.setText("jTextField1");
+        txtJudul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaActionPerformed(evt);
+                txtJudulActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNama);
-        txtNama.setBounds(130, 50, 260, 30);
+        getContentPane().add(txtJudul);
+        txtJudul.setBounds(130, 50, 260, 30);
 
-        jLabel3.setText("Alamat");
+        jLabel3.setText("Pengarang");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 80, 110, 16);
 
-        txtAlamat.setText("jTextField1");
-        getContentPane().add(txtAlamat);
-        txtAlamat.setBounds(130, 80, 260, 30);
+        txtPengarang.setText("jTextField1");
+        getContentPane().add(txtPengarang);
+        txtPengarang.setBounds(130, 80, 260, 30);
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -110,20 +120,20 @@ public class FormAnggota extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSave);
-        btnSave.setBounds(10, 120, 70, 22);
+        btnSave.setBounds(10, 200, 70, 22);
 
-        tabelAnggota.setModel(new javax.swing.table.DefaultTableModel(
+        tabelBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Anggota Id", "Nama", "Alamat"
+                "Buku Id", "Judul", "Pengarang", "Penerbit", "Tahun Terbit"
             }
         ));
-        jScrollPane1.setViewportView(tabelAnggota);
+        jScrollPane1.setViewportView(tabelBuku);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 152, 380, 340);
+        jScrollPane1.setBounds(10, 232, 380, 260);
 
         btnCari.setText("Cari");
         btnCari.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +151,7 @@ public class FormAnggota extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(90, 120, 72, 22);
+        btnUpdate.setBounds(90, 200, 72, 22);
 
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +160,7 @@ public class FormAnggota extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(180, 120, 72, 22);
+        jButton2.setBounds(180, 200, 72, 22);
 
         jButton3.setText("Cancel");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +169,23 @@ public class FormAnggota extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(270, 120, 72, 22);
+        jButton3.setBounds(270, 200, 72, 22);
+
+        jLabel4.setText("Penerbit");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(10, 110, 110, 16);
+
+        txtPenerbit.setText("jTextField1");
+        getContentPane().add(txtPenerbit);
+        txtPenerbit.setBounds(130, 110, 260, 30);
+
+        jLabel5.setText("Tahun Terbit");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 140, 110, 16);
+
+        txtTahunterbit.setText("jTextField2");
+        getContentPane().add(txtTahunterbit);
+        txtTahunterbit.setBounds(130, 140, 260, 30);
 
         setSize(new java.awt.Dimension(421, 540));
         setLocationRelativeTo(null);
@@ -167,19 +193,19 @@ public class FormAnggota extends javax.swing.JFrame {
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
-        controller.getAnggota();
+        controller.getBukuId();
     }//GEN-LAST:event_btnCariActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        controller.saveAnggota();
+        controller.saveBuku();
         controller.viewTabel();
         controller.bersihForm();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        controller.UpdateAnggota();
+        controller.UpdateBuku();
         controller.viewTabel();
         controller.bersihForm();
         
@@ -187,7 +213,7 @@ public class FormAnggota extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        controller.deleteAnggota();
+        controller.deleteBuku();
         controller.viewTabel();
         controller.bersihForm();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -197,13 +223,13 @@ public class FormAnggota extends javax.swing.JFrame {
         controller.bersihForm();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void txtAnggotaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnggotaIdActionPerformed
+    private void txtBukuIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBukuIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnggotaIdActionPerformed
+    }//GEN-LAST:event_txtBukuIdActionPerformed
 
-    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+    private void txtJudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJudulActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaActionPerformed
+    }//GEN-LAST:event_txtJudulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,21 +248,27 @@ public class FormAnggota extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormAnggota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormAnggota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormAnggota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormAnggota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormAnggota().setVisible(true);
+                new FormBuku().setVisible(true);
             }
         });
     }
@@ -250,10 +282,14 @@ public class FormAnggota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelAnggota;
-    private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtAnggotaId;
-    private javax.swing.JTextField txtNama;
+    private javax.swing.JTable tabelBuku;
+    private javax.swing.JTextField txtBukuId;
+    private javax.swing.JTextField txtJudul;
+    private javax.swing.JTextField txtPenerbit;
+    private javax.swing.JTextField txtPengarang;
+    private javax.swing.JTextField txtTahunterbit;
     // End of variables declaration//GEN-END:variables
 }
